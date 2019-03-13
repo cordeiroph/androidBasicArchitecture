@@ -1,0 +1,108 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "kotlin-allopen"
+
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.phrc.androidarchitecture"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+ext {
+    support = "28.0.0"
+    facebook = "4.36.1"
+    junit = "4.12"
+    lifecycle = "2.0.0"
+    room = "2.0.0"
+    okhttp = "3.10.0"
+    mockito = "2.8.9"
+    powerMock = "1.7.3"
+    retrofit = "2.4.0"
+    rxJava = "2.2.2"
+    rxBinding = "2.2.0"
+    socketIo = "1.0.0"
+    googlePlay = "16.0.0"
+    leakcanary = "1.5.4"
+    espresso = "3.0.2-beta1"
+    runner = "1.0.2-beta1"
+    dagger = "2.16"
+    firebaseCore = "16.0.4"
+    firebaseMessaging = "17.3.3"
+    pagingLibrary = "2.0.0"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'com.google.android.material:material:1.0.0'
+
+
+    //lifecycle Library
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:${lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:${lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycle}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${lifecycle}"
+
+    // DB Library
+    implementation "androidx.room:room-runtime:${room}"
+    kapt "androidx.room:room-compiler:${room}"
+    implementation "androidx.room:room-rxjava2:${room}"
+
+    //REST Library
+    implementation "com.squareup.okhttp3:okhttp:${okhttp}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okhttp}"
+
+
+    //RX Library
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJava}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${rxBinding}"
+
+    //Dagger Library
+    implementation "com.google.dagger:dagger:${dagger}"
+    kapt "com.google.dagger:dagger-compiler:${dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${dagger}"
+    implementation "com.google.dagger:dagger-android-support:${dagger}"
+
+    //Kotlin Library
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+
+
+apply plugin: 'kotlin-android-extensions'

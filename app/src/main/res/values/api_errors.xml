@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="UNKNOWN_ERROR">Unknown Error.</string>
+    <string name="ERROR_500">Unknown error. Code: -5</string>
+    <string name="TIME_OUT">No Internet Connection.</string>
+</resources>
